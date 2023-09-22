@@ -122,7 +122,6 @@
         });
 
         function moveLeft() {
-            // Implement the logic to move tiles left
             let moved = false;
             for (let row = 0; row < size; row++) {
                 for (let col = 1; col < size; col++) {
@@ -131,13 +130,11 @@
                         while (currentCol > 0) {
                             const prevCol = currentCol - 1;
                             if (board[row][prevCol] === null) {
-                                // Move the tile to the left
                                 board[row][prevCol] = board[row][currentCol];
                                 board[row][currentCol] = null;
                                 currentCol--;
                                 moved = true;
                             } else if (board[row][prevCol] === board[row][currentCol]) {
-                                // Merge tiles if they have the same value
                                 board[row][prevCol] *= 2;
                                 board[row][currentCol] = null;
                                 moved = true;
