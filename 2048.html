@@ -102,11 +102,9 @@
             return colors[value] || "#ccc";
         }
 
-        // Initialize the game
         initBoard();
         updateBoard();
 
-        // Add keyboard event listener
         document.addEventListener("keydown", (event) => {
             let moved = false;
             switch (event.key) {
@@ -130,7 +128,6 @@
         });
 
         function moveLeft() {
-            // Implement the logic to move tiles left
             let moved = false;
             for (let row = 0; row < size; row++) {
                 for (let col = 1; col < size; col++) {
@@ -139,13 +136,11 @@
                         while (currentCol > 0) {
                             const prevCol = currentCol - 1;
                             if (board[row][prevCol] === null) {
-                                // Move the tile to the left
                                 board[row][prevCol] = board[row][currentCol];
                                 board[row][currentCol] = null;
                                 currentCol--;
                                 moved = true;
                             } else if (board[row][prevCol] === board[row][currentCol]) {
-                                // Merge tiles if they have the same value
                                 board[row][prevCol] *= 2;
                                 board[row][currentCol] = null;
                                 moved = true;
@@ -161,7 +156,6 @@
         }
 
         function moveRight() {
-            // Implement the logic to move tiles right
             let moved = false;
             for (let row = 0; row < size; row++) {
                 for (let col = size - 2; col >= 0; col--) {
@@ -170,13 +164,11 @@
                         while (currentCol < size - 1) {
                             const nextCol = currentCol + 1;
                             if (board[row][nextCol] === null) {
-                                // Move the tile to the right
                                 board[row][nextCol] = board[row][currentCol];
                                 board[row][currentCol] = null;
                                 currentCol++;
                                 moved = true;
                             } else if (board[row][nextCol] === board[row][currentCol]) {
-                                // Merge tiles if they have the same value
                                 board[row][nextCol] *= 2;
                                 board[row][currentCol] = null;
                                 moved = true;
@@ -192,7 +184,6 @@
         }
 
         function moveUp() {
-            // Implement the logic to move tiles up
             let moved = false;
             for (let col = 0; col < size; col++) {
                 for (let row = 1; row < size; row++) {
@@ -201,13 +192,11 @@
                         while (currentRow > 0) {
                             const prevRow = currentRow - 1;
                             if (board[prevRow][col] === null) {
-                                // Move the tile up
                                 board[prevRow][col] = board[currentRow][col];
                                 board[currentRow][col] = null;
                                 currentRow--;
                                 moved = true;
                             } else if (board[prevRow][col] === board[currentRow][col]) {
-                                // Merge tiles if they have the same value
                                 board[prevRow][col] *= 2;
                                 board[currentRow][col] = null;
                                 moved = true;
@@ -223,7 +212,6 @@
         }
 
         function moveDown() {
-            // Implement the logic to move tiles down
             let moved = false;
             for (let col = 0; col < size; col++) {
                 for (let row = size - 2; row >= 0; row--) {
@@ -232,13 +220,11 @@
                         while (currentRow < size - 1) {
                             const nextRow = currentRow + 1;
                             if (board[nextRow][col] === null) {
-                                // Move the tile down
                                 board[nextRow][col] = board[currentRow][col];
                                 board[currentRow][col] = null;
                                 currentRow++;
                                 moved = true;
                             } else if (board[nextRow][col] === board[currentRow][col]) {
-                                // Merge tiles if they have the same value
                                 board[nextRow][col] *= 2;
                                 board[currentRow][col] = null;
                                 moved = true;
@@ -253,7 +239,6 @@
             return moved;
         }
         
-        // Reset the game when the reset button is clicked
         const resetButton = document.getElementById("resetButton");
         resetButton.addEventListener("click", () => {
             for (let i = 0; i < size; i++) {
