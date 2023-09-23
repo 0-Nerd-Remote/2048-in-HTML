@@ -102,9 +102,11 @@
             return colors[value] || "#ccc";
         }
 
+        // Initialize the game
         initBoard();
         updateBoard();
 
+        // Add keyboard event listener
         document.addEventListener("keydown", (event) => {
             let moved = false;
             switch (event.key) {
