@@ -122,6 +122,18 @@
                 case "ArrowDown":
                     moved = moveDown();
                     break;
+                case "W":
+                    moved = moveUp();
+                    break;    
+                case "A":
+                    moved = moveLeft();
+                    break;
+                case "S":
+                    moved = moveDown();
+                    break;
+                case "D":
+                    moved = moveRight();
+                    break;
             }
             if (moved) {
                 generateTile();
