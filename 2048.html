@@ -102,37 +102,31 @@
             return colors[value] || "#ccc";
         }
 
-        // Initialize the game
         initBoard();
         updateBoard();
 
-        // Add keyboard event listener
         document.addEventListener("keydown", (event) => {
             let moved = false;
             switch (event.key) {
                 case "ArrowLeft":
-                    moved = moveLeft();
-                    break;
-                case "ArrowRight":
-                    moved = moveRight();
-                    break;
-                case "ArrowUp":
-                    moved = moveUp();
-                    break;
-                case "ArrowDown":
-                    moved = moveDown();
-                    break;
-                case "W":
-                    moved = moveUp();
-                    break;    
+                case "a":
                 case "A":
                     moved = moveLeft();
                     break;
-                case "S":
-                    moved = moveDown();
-                    break;
+                case "ArrowRight":
+                case "d":
                 case "D":
                     moved = moveRight();
+                    break;
+                case "ArrowUp":
+                case "w":
+                case "w":
+                    moved = moveUp();
+                    break;
+                case "ArrowDown":
+                case "s":
+                case "S":        
+                    moved = moveDown();
                     break;
             }
             if (moved) {
